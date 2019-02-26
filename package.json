@@ -1,0 +1,33 @@
+{
+  "name": "@itsjonq/do",
+  "version": "0.0.0",
+  "description": "Module generated with Zero",
+  "bin": {
+    "do": "src/cli.js"
+  },
+  "main": "src/index.js",
+  "private": false,
+  "scripts": {
+    "prestart": "zero prestart",
+    "build": "zero build",
+    "lint": "zero lint",
+    "test": "zero test",
+    "format": "zero format",
+    "validate": "zero validate",
+    "release": "zero release",
+    "version": "zero build",
+    "precommit": "zero pre-commit"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@helpscout/zero": "2.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

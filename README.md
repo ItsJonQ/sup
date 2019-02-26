@@ -1,11 +1,19 @@
-# Do
+# SUP
 
-> Simple todo tracker
+> Stand up tracker
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Usage](#usage)
+- [Configure](#configure)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Usage
 
 ```
-Usage: do <command>
+Usage: sup <command>
 
 Commands:
 config         Configures do
@@ -17,8 +25,8 @@ print  (p)     Print yesterday's and today's do's
 
 ## Configure
 
-By default, Do will create `.md` files under the `~/.do` directory. You can customize the directory by running:
+By default, Do will create `.md` files under the `~/.sup` directory. You can customize the directory by running:
 
 ```
-do config --dir=~/Stuff/my-custom-do/here
+sup config --dir=~/Stuff/my-custom-do/here
 ```

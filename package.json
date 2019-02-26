@@ -1,9 +1,9 @@
 {
-  "name": "@itsjonq/do",
+  "name": "@itsjonq/sup",
   "version": "0.0.0",
   "description": "Module generated with Zero",
   "bin": {
-    "do": "src/cli.js"
+    "sup": "src/index.js"
   },
   "main": "src/index.js",
   "private": false,
@@ -29,5 +29,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "commander": "^2.19.0"
   }
 }

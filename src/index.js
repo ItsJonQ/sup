@@ -3,6 +3,14 @@
 const program = require('commander')
 const pkg = require('../package.json')
 
+program.usage(`
+
+SUP (v${pkg.version})
+sup <command>
+
+Example:
+sup add`)
+
 program.version(pkg.version)
 
 program

@@ -18,15 +18,6 @@ exports.getYesterday = () => {
   return exports.formatDate(date)
 }
 
-exports.formatFileFromDate = date => path.join(rootDir, `${date}.md`)
-
-exports.createDir = dir => {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir)
-  }
-}
-exports.createRootDir = () => exports.createDir(rootDir)
-
 exports.readFile = async file => {
   return new Promise((resolve, reject) => {
     if (!fs.existsSync(file)) {
@@ -46,17 +37,4 @@ exports.writeFile = async (file, content) => {
       resolve()
     })
   })
-}
-
-exports.getFile = async file => {
-  exports.createRootDir()
-  return await exports.readFile(file)
-}
-
-exports.createFile = async file => {
-  exports.createRootDir()
-
-  if (fs.existsSync(file)) return
-
-  return await exports.writeFile(file, '')
 }

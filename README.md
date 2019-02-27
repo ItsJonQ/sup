@@ -1,6 +1,11 @@
-# ✌️ SUP
+# ⭐️ SUP
+
+[![Build Status](https://travis-ci.org/ItsJonQ/sup.svg?branch=master)](https://travis-ci.org/ItsJonQ/sup)
+[![npm version](https://badge.fury.io/js/%40itsjonq%2Fsup.svg)](https://badge.fury.io/js/%40itsjonq%2Fsup)
 
 > Simple task tracker
+
+## Table of contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -13,7 +18,7 @@
 ## Usage
 
 ```
-✌️  SUP
+⭐️ SUP
 
 sup <command>
 

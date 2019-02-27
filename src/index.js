@@ -8,7 +8,7 @@ const dones = require('./dones')
 
 program.usage(`
 
-✌️  SUP (v${pkg.version})
+⭐️  SUP (v${pkg.version})
 
 sup <command>
 

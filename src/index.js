@@ -11,7 +11,7 @@ program.usage(`
 sup <command>
 
 Example:
-sup add "I did a thing!"`)
+  sup add "I did a thing!"`)
 
 program.version(pkg.version)
 
@@ -52,6 +52,14 @@ program
   .action(async () => {
     const content = await dones.copyAndPrint()
     console.log(content)
+  })
+
+program
+  .command('which')
+  .description('Display location of tasks')
+  .action(async () => {
+    const dir = await dones.getDir()
+    console.log(dir)
   })
 
 program.parse(process.argv)

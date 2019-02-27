@@ -3,6 +3,7 @@ const path = require('path')
 const { spawn } = require('child_process')
 const mkdirp = require('mkdirp')
 const clipboard = require('clipboardy')
+const emoji = require('node-emoji')
 const { getToday, getYesterday, readFile, writeFile } = require('./utils')
 const config = require('./config')
 
@@ -64,7 +65,7 @@ exports.getContentForDay = async ({ date, day, showEmpty }) => {
 
   if (!showEmpty && !content) return ''
 
-  return `*${day} (${date})*\n\n${content || emptyMessage}`
+  return emoji.emojify(`*${day} (${date})*\n\n${content || emptyMessage}`)
 }
 
 exports.getToday = async () => {

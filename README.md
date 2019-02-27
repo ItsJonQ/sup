@@ -18,7 +18,7 @@
 sup <command>
 
 Example:
-sup add "I did a thing!"
+  sup add "I did a thing!"
 
 Options:
   -V, --version  output the version number
@@ -29,6 +29,7 @@ Commands:
   list|ls        List Today's tasks
   edit|e         Edit Today's tasks
   print|p        Print Yesterday's and Today's tasks. Copies to clipboard.
+  which          Display location of tasks
 ```
 
 ## Configure

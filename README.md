@@ -27,6 +27,7 @@ Options:
 Commands:
   config [options]  Configures SUP
   add|a [task]      Add a new task for Today
+  new|n [task]      Alias for "add"
   list|ls           List Today's tasks
   edit|e            Edit Today's tasks
   print|p           Print Yesterday's and Today's tasks

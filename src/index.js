@@ -59,6 +59,18 @@ program
   })
 
 program
+  .command('new [task]')
+  .alias('n')
+  .description('Alias for "add"')
+  .action(async content => {
+    if (!content) return
+
+    dones.add(content)
+
+    console.log(`Added "${content}!"`)
+  })
+
+program
   .command('list')
   .alias('ls')
   .description("List Today's tasks")

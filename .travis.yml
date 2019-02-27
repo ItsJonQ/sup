@@ -10,7 +10,8 @@ install:
   - npm install
 
 script:
-  - npm run validate
+  - npm run test
+  - npm run build
 
 branches:
   only:

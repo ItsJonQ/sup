@@ -1,7 +1,7 @@
 {
   "name": "@itsjonq/sup",
   "version": "0.0.0",
-  "description": "Module generated with Zero",
+  "description": "Simple task tracker",
   "bin": {
     "sup": "src/index.js"
   },

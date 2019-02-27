@@ -1,6 +1,6 @@
 # ✌️ SUP
 
-> Stand up tracker
+> Simple task tracker
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -32,6 +32,8 @@ Commands:
 ```
 
 ## Configure
+
+(Coming soon)
 
 By default, Do will create `.md` files under the `~/.sup` directory. You can customize the directory by running:
 

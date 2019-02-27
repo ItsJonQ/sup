@@ -4,14 +4,15 @@ const { spawn } = require('child_process')
 const mkdirp = require('mkdirp')
 const clipboard = require('clipboardy')
 const emoji = require('node-emoji')
-const { getToday, getYesterday, readFile, writeFile } = require('./utils')
+const { root, getToday, getYesterday, readFile, writeFile } = require('./utils')
 const config = require('./config')
 
 const dirName = 'dones'
 
 exports.getDir = async () => {
   const dirRoot = await config.getDirectory()
-  const dir = path.join(dirRoot, dirName)
+  const trueRoot = dirRoot.replace('~/', `${root}/`)
+  const dir = path.join(trueRoot, dirName)
 
   if (!fs.existsSync(dir)) {
     mkdirp.sync(dir)
@@ -29,6 +30,7 @@ exports.existsFromDate = async date => {
 exports.getFilePath = async date => {
   const file = `${date}.md`
   const dir = await exports.getDir()
+  console.log(dir)
   const filePath = path.join(dir, file)
 
   return filePath

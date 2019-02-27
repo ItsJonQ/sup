@@ -55,7 +55,7 @@ program
 
     dones.add(content)
 
-    console.log(`Added "${content}!"`)
+    console.log(`Added "${content}"`)
   })
 
 program
@@ -67,7 +67,7 @@ program
 
     dones.add(content)
 
-    console.log(`Added "${content}!"`)
+    console.log(`Added "${content}"`)
   })
 
 program

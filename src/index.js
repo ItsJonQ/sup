@@ -2,6 +2,8 @@
 
 const program = require('commander')
 const pkg = require('../package.json')
+const argv = require('yargs').argv
+const config = require('./config')
 const dones = require('./dones')
 
 program.usage(`
@@ -14,6 +16,35 @@ Example:
   sup add "I did a thing!"`)
 
 program.version(pkg.version)
+
+program
+  .command('config')
+  .option('show', 'Show config')
+  .option('--dir', 'Define the (full) directory path to save tasks')
+  .option('--editor', 'Define the editor to open tasks with')
+  .description('Configures SUP')
+  .action(async (cmd, opts) => {
+    const { dir, editor } = argv
+
+    if (dir) {
+      await config.setDirectory(dir)
+      console.log('Set directory as', dir)
+      return
+    }
+
+    if (editor) {
+      await config.setEditor(editor)
+      console.log('Set editor as', editor)
+      return
+    }
+
+    if (cmd === 'show') {
+      console.log(await config.get())
+      return
+    }
+
+    program.help()
+  })
 
 program
   .command('add [task]')
@@ -73,8 +104,6 @@ program
 
 program.parse(process.argv)
 
-const NO_COMMAND_SPECIFIED = program.args.length === 0
-
-if (NO_COMMAND_SPECIFIED) {
-  program.help()
+if (!process.argv.slice(2).length) {
+  program.outputHelp()
 }

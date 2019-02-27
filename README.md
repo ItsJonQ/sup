@@ -31,6 +31,7 @@ Commands:
   edit|e            Edit Today's tasks
   print|p           Print Yesterday's and Today's tasks
   copy|cp           Copy Yesterday's and Today's tasks
+  open|o            Opens the task directory
   which             Display location of tasks
 ```
 

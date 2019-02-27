@@ -95,6 +95,14 @@ program
   })
 
 program
+  .command('open')
+  .alias('o')
+  .description('Opens the task directory')
+  .action(async () => {
+    await dones.open()
+  })
+
+program
   .command('which')
   .description('Display location of tasks')
   .action(async () => {

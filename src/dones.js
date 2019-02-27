@@ -129,4 +129,9 @@ exports.getFileContent = async filePath => {
   return content
 }
 
+exports.open = async () => {
+  const dir = await exports.getDir()
+  const task = spawn('open', [dir], { stdio: 'inherit' })
+}
+
 exports.dirName = dirName

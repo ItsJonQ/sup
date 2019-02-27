@@ -1,4 +1,4 @@
-# SUP
+# ✌️ SUP
 
 > Stand up tracker
 
@@ -13,14 +13,22 @@
 ## Usage
 
 ```
-Usage: sup <command>
+✌️  SUP
+
+sup <command>
+
+Example:
+sup add "I did a thing!"
+
+Options:
+  -V, --version  output the version number
+  -h, --help     output usage information
 
 Commands:
-config         Configures do
-add    (a)     Add a new do
-list   (ls)    List today's do's
-edit   (e)     Edit today's do's (Vim)
-print  (p)     Print yesterday's and today's do's
+  add|a [task]   Add a new task for Today
+  list|ls        List Today's tasks
+  edit|e         Edit Today's tasks
+  print|p        Print Yesterday's and Today's tasks. Copies to clipboard.
 ```
 
 ## Configure

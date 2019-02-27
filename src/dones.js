@@ -3,7 +3,7 @@ const path = require('path')
 const { spawn } = require('child_process')
 const mkdirp = require('mkdirp')
 const clipboard = require('clipboardy')
-const { root, getToday, getYesterday, readFile, writeFile } = require('./utils')
+const { getToday, getYesterday, readFile, writeFile } = require('./utils')
 const config = require('./config')
 
 const dirName = 'dones'

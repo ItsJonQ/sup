@@ -2,23 +2,23 @@
 
 const program = require('commander')
 const pkg = require('../package.json')
-const config = require('./config')
 const dones = require('./dones')
 
 program.usage(`
 
-SUP (v${pkg.version})
+✌️  SUP (v${pkg.version})
+
 sup <command>
 
 Example:
-sup add`)
+sup add "I did a thing!"`)
 
 program.version(pkg.version)
 
 program
   .command('add [task]')
   .alias('a')
-  .description('Add a new task')
+  .description('Add a new task for Today')
   .action(async content => {
     if (!content) return
 
@@ -30,7 +30,7 @@ program
 program
   .command('list')
   .alias('ls')
-  .description("See Today's tasks")
+  .description("List Today's tasks")
   .action(async () => {
     const content = await dones.getToday()
 

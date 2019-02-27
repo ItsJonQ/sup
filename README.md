@@ -28,7 +28,8 @@ Commands:
   add|a [task]   Add a new task for Today
   list|ls        List Today's tasks
   edit|e         Edit Today's tasks
-  print|p        Print Yesterday's and Today's tasks. Copies to clipboard.
+  print|p        Print Yesterday's and Today's tasks
+  copy|cp        Copy Yesterday's and Today's tasks
   which          Display location of tasks
 ```
 

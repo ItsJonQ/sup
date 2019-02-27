@@ -48,7 +48,16 @@ program
 program
   .command('print')
   .alias('p')
-  .description("Print Yesterday's and Today's tasks. Copies to clipboard.")
+  .description("Print Yesterday's and Today's tasks")
+  .action(async () => {
+    const content = await dones.print()
+    console.log(content)
+  })
+
+program
+  .command('copy')
+  .alias('cp')
+  .description("Copy Yesterday's and Today's tasks")
   .action(async () => {
     const content = await dones.copyAndPrint()
     console.log(content)

@@ -46,13 +46,13 @@ exports.readFile = async date => {
 exports.add = async content => {
   const date = getToday()
   const filePath = await exports.getFilePath(date)
-  const previousContent = exports.getFileContent(filePath)
+  const previousContent = await exports.getFileContent(filePath)
 
   const nextContent = previousContent
-    ? `${previousContent}\n${content}`
+    ? `${previousContent.trim()}\n${content}`
     : content
 
-  await writeFile(filePath, nextContent)
+  await writeFile(filePath, nextContent.trim())
 
   return nextContent
 }

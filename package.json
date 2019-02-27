@@ -14,7 +14,7 @@
     "test": "zero test",
     "format": "zero format",
     "validate": "zero validate",
-    "release": "zero release",
+    "release": "zero release -- --yolo",
     "version": "zero build",
     "precommit": "zero pre-commit"
   },

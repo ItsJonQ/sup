@@ -21,12 +21,6 @@ exports.getDir = async () => {
   return dir
 }
 
-exports.existsFromDate = async date => {
-  const filePath = await exports.getFilePath(date)
-
-  return fs.existsSync(filePath)
-}
-
 exports.getFilePath = async date => {
   const file = `${date}.md`
   const dir = await exports.getDir()

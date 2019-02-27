@@ -2,6 +2,8 @@
 
 const program = require('commander')
 const pkg = require('../package.json')
+const config = require('./config')
+const dones = require('./dones')
 
 program.usage(`
 
@@ -17,8 +19,39 @@ program
   .command('add [task]')
   .alias('a')
   .description('Add a new task')
-  .action(() => {
-    console.log('adding...')
+  .action(async content => {
+    if (!content) return
+
+    dones.add(content)
+
+    console.log(`Added "${content}!"`)
+  })
+
+program
+  .command('list')
+  .alias('ls')
+  .description("See Today's tasks")
+  .action(async () => {
+    const content = await dones.getToday()
+
+    console.log(content)
+  })
+
+program
+  .command('edit')
+  .alias('e')
+  .description("Edit Today's tasks")
+  .action(async () => {
+    dones.editToday()
+  })
+
+program
+  .command('print')
+  .alias('p')
+  .description("Print Yesterday's and Today's tasks. Copies to clipboard.")
+  .action(async () => {
+    const content = await dones.copyAndPrint()
+    console.log(content)
   })
 
 program.parse(process.argv)

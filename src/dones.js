@@ -65,7 +65,13 @@ exports.getContentForDay = async ({ date, day, showEmpty }) => {
 
   if (!showEmpty && !content) return ''
 
-  return emoji.emojify(`*${day} (${date})*\n\n${content || emptyMessage}`)
+  return emoji.emojify(
+    `*${day} (${date})*\n\n${content || emptyMessage}`,
+    null,
+    (code, name) => {
+      return `${code} `
+    },
+  )
 }
 
 exports.getToday = async () => {

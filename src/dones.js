@@ -30,7 +30,6 @@ exports.existsFromDate = async date => {
 exports.getFilePath = async date => {
   const file = `${date}.md`
   const dir = await exports.getDir()
-  console.log(dir)
   const filePath = path.join(dir, file)
 
   return filePath
@@ -131,7 +130,9 @@ exports.getFileContent = async filePath => {
 
 exports.open = async () => {
   const dir = await exports.getDir()
-  const task = spawn('open', [dir], { stdio: 'inherit' })
+
+  console.log('Opening', dir)
+  spawn('open', [dir], { stdio: 'inherit' })
 }
 
 exports.dirName = dirName

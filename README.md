@@ -24,6 +24,14 @@ npm install -g @itsjonq/sup
 
 ## Usage
 
+In your Terminal, run the `sup` command:
+
+```
+sup
+```
+
+By default, it will output the help content:
+
 ```
 ⭐️ SUP
 

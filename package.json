@@ -1,6 +1,6 @@
 {
   "name": "@itsjonq/sup",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Simple task tracker",
   "bin": {
     "sup": "src/index.js"
@@ -11,7 +11,7 @@
     "prestart": "zero prestart",
     "build": "zero build",
     "lint": "zero lint",
-    "test": "zero test",
+    "test": "src/index.js",
     "format": "zero format",
     "validate": "zero validate",
     "release": "zero release --yolo",

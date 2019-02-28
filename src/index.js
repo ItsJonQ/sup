@@ -8,7 +8,7 @@ const dones = require('./dones')
 
 program.usage(`
 
-✌️  SUP (v${pkg.version})
+⭐️  SUP (v${pkg.version})
 
 sup <command>
 
@@ -55,7 +55,19 @@ program
 
     dones.add(content)
 
-    console.log(`Added "${content}!"`)
+    console.log(`Added "${content}"`)
+  })
+
+program
+  .command('new [task]')
+  .alias('n')
+  .description('Alias for "add"')
+  .action(async content => {
+    if (!content) return
+
+    dones.add(content)
+
+    console.log(`Added "${content}"`)
   })
 
 program

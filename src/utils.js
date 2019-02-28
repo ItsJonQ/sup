@@ -7,7 +7,24 @@ const rootDir = path.join(root, '.sup')
 exports.root = root
 exports.rootDir = rootDir
 
-exports.formatDate = date => date.toISOString().split('T')[0]
+// https://stackoverflow.com/questions/6525538/convert-utc-date-time-to-local-date-time
+exports.convertUTCDateToLocalDate = date => {
+  const newDate = new Date(
+    date.getTime() + date.getTimezoneOffset() * 60 * 1000,
+  )
+  const offset = date.getTimezoneOffset() / 60
+  const hours = date.getHours()
+
+  newDate.setHours(hours - offset)
+
+  return newDate
+}
+
+exports.formatDate = date => {
+  const localDate = exports.convertUTCDateToLocalDate(date)
+
+  return localDate.toISOString().split('T')[0]
+}
 
 exports.getToday = () => exports.formatDate(new Date())
 

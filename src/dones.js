@@ -80,7 +80,7 @@ exports.getToday = async () => {
 exports.getYesterday = async () => {
   return exports.getContentForDay({
     date: getYesterday(),
-    day: 'Yesterday',
+    day: 'Previous',
     showEmpty: true,
   })
 }

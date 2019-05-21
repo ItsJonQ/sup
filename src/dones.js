@@ -4,7 +4,13 @@ const { spawn } = require('child_process')
 const mkdirp = require('mkdirp')
 const clipboard = require('clipboardy')
 const emoji = require('node-emoji')
-const { root, getToday, getYesterday, readFile, writeFile } = require('./utils')
+const {
+  root,
+  getToday,
+  readFile,
+  writeFile,
+  getDateFromFileName,
+} = require('./utils')
 const config = require('./config')
 
 const dirName = 'dones'
@@ -19,6 +25,18 @@ exports.getDir = async () => {
   }
 
   return dir
+}
+
+exports.getFiles = async () => {
+  const dir = await exports.getDir()
+  const files = fs.readdirSync(dir, (err, files) => {
+    if (err) {
+      return console.log(err)
+    }
+    return files
+  })
+
+  return files
 }
 
 exports.getFilePath = async date => {
@@ -69,6 +87,24 @@ exports.getContentForDay = async ({ date, day, showEmpty }) => {
   )
 }
 
+exports.getPreviousDate = async () => {
+  const files = await exports.getFiles()
+
+  const today = getToday()
+
+  const previousRecentFile = files[files.length - 2]
+  const previousRecentFileName = getDateFromFileName(previousRecentFile)
+
+  const recentFile = files[files.length - 1]
+  const recentFileName = getDateFromFileName(recentFile)
+
+  const isRecentFileToday = recentFileName === today
+
+  const date = isRecentFileToday ? previousRecentFileName : recentFileName
+
+  return date
+}
+
 exports.getToday = async () => {
   return exports.getContentForDay({
     date: getToday(),
@@ -77,9 +113,10 @@ exports.getToday = async () => {
   })
 }
 
-exports.getYesterday = async () => {
+exports.getPrevious = async () => {
+  const date = await exports.getPreviousDate()
   return exports.getContentForDay({
-    date: getYesterday(),
+    date,
     day: 'Previous',
     showEmpty: true,
   })
@@ -99,10 +136,10 @@ exports.editToday = async () => {
 }
 
 exports.print = async () => {
-  const yesteday = await exports.getYesterday()
+  const previous = await exports.getPrevious()
   const today = await exports.getToday()
 
-  return `${yesteday}\n\n${today}`
+  return [previous, today].filter(Boolean).join('\n\n')
 }
 
 exports.copyAndPrint = async () => {

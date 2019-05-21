@@ -26,32 +26,9 @@ exports.formatDate = date => {
   return localDate.toISOString().split('T')[0]
 }
 
-exports.isWeekend = date => {
-  const day = date.getDay()
-  return day === 6 || day === 0
-}
-
 exports.getLocalDate = () => exports.convertUTCDateToLocalDate(new Date())
 
 exports.getToday = () => exports.formatDate(new Date())
-
-exports.getYesterday = () => {
-  const date = exports.getLocalDate()
-  const day = date.getDay()
-  const previous = date.getDate() - 1
-  let offset = 1
-
-  if (day === 0) {
-    offset = 3
-  }
-  if (day === 6) {
-    offset = 2
-  }
-
-  date.setDate(date.getDate() - offset)
-
-  return exports.formatDate(date)
-}
 
 exports.readFile = async file => {
   return new Promise((resolve, reject) => {
@@ -72,4 +49,8 @@ exports.writeFile = async (file, content) => {
       resolve()
     })
   })
+}
+
+exports.getDateFromFileName = (file = '') => {
+  return path.basename(file, '.md')
 }
